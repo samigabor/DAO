@@ -11,7 +11,8 @@ contract SimpleStorage is Ownable {
 
     constructor() Ownable(msg.sender) {}
 
-    function setNumber(uint256 _number) public {
+    /// Governer is the owner of this contract and can make changes to it
+    function setNumber(uint256 _number) public onlyOwner {
         s_number = _number;
         emit NumberChanged(_number);
     }

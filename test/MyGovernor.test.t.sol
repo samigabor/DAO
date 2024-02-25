@@ -21,9 +21,9 @@ contract MyGovernorTest is Test {
     address public admin = makeAddr("admin");
 
     uint256 public constant INITIAL_SUPPLY = 100 ether;
-    uint256 public constant MIN_DELAY = 3600; // 1 hour - delay an executor can execute a passed proposal
+    uint256 public constant MIN_DELAY = 300; // 5 min - delay an executor can execute a passed proposal
     uint256 public constant VOTING_DELAY = 1; // 1 block - delay from proposal until voting can start
-    uint256 public constant VOTING_PERIOD = 50400; // 1 week
+    uint256 public constant VOTING_PERIOD = 600; // 10 min
 
     address[] public proposers; // empty means anybody can propose
     address[] public executors; // empty means anybody can execute

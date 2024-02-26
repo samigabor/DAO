@@ -17,12 +17,20 @@ contract HelperConfig is Script {
     constructor() {
         if (block.chainid == 11155111) {
             config = getSepoliaConfig();
+        } else if (block.chainid == 111) {
+            config = getBobConfig();
         } else {
             config = getOrCreateAnvilConfig();
         }
     }
 
     function getSepoliaConfig() public view returns (Config memory) {
+        return Config({
+            deployKey: vm.envUint("PRIVATE_KEY")
+        });
+    }
+
+    function getBobConfig() public view returns (Config memory) {
         return Config({
             deployKey: vm.envUint("PRIVATE_KEY")
         });
